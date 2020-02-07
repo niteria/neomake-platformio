@@ -70,6 +70,7 @@ class Main(object):
         CPATH = []
         for include in idestate['includes']:
             CPATH.append('{path}'.format(path=include))
+            self.nvim.command('set path+={path}'.format(path=include))
 
         self.nvim.command(
             'let $CPATH="{original}:{value}"'.format(
